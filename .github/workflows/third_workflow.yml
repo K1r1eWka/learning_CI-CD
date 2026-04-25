@@ -17,3 +17,5 @@ jobs:
           git checkout main
       - name: List files in repo
         run: ls
+      - name: Run a command
+        run: cat index.html
