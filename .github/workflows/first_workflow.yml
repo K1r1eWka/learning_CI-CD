@@ -5,5 +5,11 @@ jobs:
   run-first-command:
     runs-on: ubuntu-latest
     steps:
-      - name: Display Current Date
-        run: date
+      - name: Display Some text
+        run: echo "Hello, World!"
+      - name: Display multiple lines of text
+        run: |
+          echo "Hello, World!"
+          echo "This is a multi-line message."
+          echo "Goodbye, World!"
+          echo "date is $(date)"
