@@ -1,4 +1,4 @@
-name: First Workflow
+name: Second Workflow
 on: push
 
 jobs:
@@ -13,3 +13,12 @@ jobs:
           echo "This is a multi-line message."
           echo "Goodbye, World!"
           echo "date is $(date)"
+  run-second-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display numbers
+        run: |
+          for i in {1..5}
+          do
+            echo "Number: $i"
+          done
