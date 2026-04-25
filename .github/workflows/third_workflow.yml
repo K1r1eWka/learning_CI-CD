@@ -6,14 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List files
-        run: ls -la
+        run: ls
       - name: Print working directory
         run: pwd
       - name: Copy repo files to virtual machine
         run: |
           git init
-          git remote add origin https://github.com/yourusername/yourrepo.git
-          git fetch
+          git remote add origin https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git
+          git fetch origin
           git checkout main
       - name: List files in repo
-        run: ls -la
+        run: ls
