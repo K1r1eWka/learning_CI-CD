@@ -1,0 +1,19 @@
+name: Third Workflow
+on: push
+
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files
+        run: ls -la
+      - name: Print working directory
+        run: pwd
+      - name: Copy repo files to virtual machine
+        run: |
+          git init
+          git remote add origin https://github.com/yourusername/yourrepo.git
+          git fetch
+          git checkout main
+      - name: List files in repo
+        run: ls -la
