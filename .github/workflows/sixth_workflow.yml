@@ -1,0 +1,19 @@
+name: Sixth Workflow
+on:
+  push:
+    branches: 
+      - main
+      - "page/*" # page/home page/about page/faq ..
+      - "page/**" # page/home/faq/index.html  page/home/about/index.html
+      - "!page/blog"
+    paths: 
+      - "**.html"
+
+jobs:
+  show-commit-hash-and-directory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Commit Hash
+        run: |
+          echo "Commit Hash: $GITHUB_SHA"
+          echo "Repository: $GITHUB_REF"
