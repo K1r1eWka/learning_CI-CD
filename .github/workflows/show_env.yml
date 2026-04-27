@@ -1,5 +1,5 @@
 name: Seventh Workflow
-run-name: This is 7th Workflow
+# run-name: This is 7th Workflow
 on: push
 env: 
   MY_ENV_VAR: my_value 1
