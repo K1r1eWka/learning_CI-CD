@@ -32,4 +32,4 @@ jobs:
     - name: show variables
       run: |
         echo "MY GLOBAL VAR: $MY_ENV_VAR"
-        echo "MY LOCAL VAR: $LOCAL_VAR"
+        echo "MY LOCAL VAR: ${{ env.LOCAL_VAR }}"
