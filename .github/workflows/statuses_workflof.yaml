@@ -1,0 +1,21 @@
+name: Statuses Workflow
+on: push
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step
+        run: sleep 30
+      - name: Runs on Canceled
+        if: ${{ canceled() }}
+        run: echo "Job was canceled"
+      - name: Runs on any case
+        if: ${{ always() }}
+        run: echo "Job runs always"
+      - name: Runs on Success
+        if: ${{ success() }}
+        run: echo "Job was successful"
+      - name: Runs on Failure
+        if: ${{ failure() }}
+        run: echo "Job failed"
