@@ -24,7 +24,7 @@ jobs:
         echo "MY GLOBAL VAR: $MY_ENV_VAR"
         echo "MY LOCAL VAR: $LOCAL_VAR"
   third_job:
-    needs: [second_job, first_job]
+    needs: [second_job, my_job]
     env:
         LOCAL_VAR: local_value 333333
     runs-on: ubuntu-latest
