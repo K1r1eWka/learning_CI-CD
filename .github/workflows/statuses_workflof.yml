@@ -7,7 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: First step
-        run: sleep 30
+        run: sleep 10
+      - name: Failure step
+        id: error-step
+        run: exit 1
+
       - name: Runs on any case
         if: ${{ always() }}
         run: echo "Job runs always"
@@ -15,7 +19,7 @@ jobs:
         if: ${{ success() }}
         run: echo "Job was successful"
       - name: Runs on Failure
-        if: ${{ failure() }}
+        if: ${{ failure() && steps.error-step.conclusion == 'failure' }}
         run: echo "Job failed"
 
 
